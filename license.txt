@@ -1,0 +1,301 @@
+
+Hoperun@Hoperun-PC MINGW64 ~
+$ cd:d/
+bash: cd:d/: No such file or directory
+
+Hoperun@Hoperun-PC MINGW64 ~
+$ cd/d
+bash: cd/d: No such file or directory
+
+Hoperun@Hoperun-PC MINGW64 ~
+$ cd /d/gitBass
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass
+$ mkdir learngit
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass
+$ cd learngit
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit
+$ git init
+Initialized empty Git repository in D:/gitBass/learngit/.git/
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ pwd
+/d/gitBass/learngit
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ ls -ah
+./  ../  .git/
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git commit -m "wrote a readme file"
+[master (root-commit) b03551e] wrote a readme file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git diff readme.tex
+fatal: ambiguous argument 'readme.tex': unknown revision or path not in the work
+ing tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index ccd90e1..6e31bba 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-git is a version control system.
++git is a distributed version control system.
+ git is free software.
+\ No newline at end of file
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git commit -m readme.txt
+[master e006251] readme.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git commit -m"append GPL"
+[master dbdee75] append GPL
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git log
+commit dbdee7565f1378265bbd8da13880a9b42d52de2b
+Author: luxingan <xingvsan521@126.com>
+Date:   Tue Feb 16 12:02:13 2016 +0800
+
+    append GPL
+
+commit e006251f301c35e271dc65cfaef6f6a48c035546
+Author: luxingan <xingvsan521@126.com>
+Date:   Tue Feb 16 11:58:08 2016 +0800
+
+    readme.txt
+
+commit b03551e3964ecd5844ac4028066f7beefb9d951c
+Author: luxingan <xingvsan521@126.com>
+Date:   Tue Feb 16 11:47:16 2016 +0800
+
+    wrote a readme file
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git log --pretty = oneline
+fatal: ambiguous argument '=': unknown revision or path not in the working tree.
+
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git log --pretty=oneline
+dbdee7565f1378265bbd8da13880a9b42d52de2b append GPL
+e006251f301c35e271dc65cfaef6f6a48c035546 readme.txt
+b03551e3964ecd5844ac4028066f7beefb9d951c wrote a readme file
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git reset --hard HEAD^
+HEAD is now at e006251 readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git log --pretty=oneline
+e006251f301c35e271dc65cfaef6f6a48c035546 readme.txt
+b03551e3964ecd5844ac4028066f7beefb9d951c wrote a readme file
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git reset --hard dbdee7565f
+HEAD is now at dbdee75 append GPL
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git reflog
+dbdee75 HEAD@{0}: reset: moving to dbdee7565f
+e006251 HEAD@{1}: reset: moving to HEAD^
+dbdee75 HEAD@{2}: commit: append GPL
+e006251 HEAD@{3}: commit: readme.txt
+b03551e HEAD@{4}: commit (initial): wrote a readme file
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git reset --hard HEAD^
+HEAD is now at e006251 readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git reflog
+e006251 HEAD@{0}: reset: moving to HEAD^
+dbdee75 HEAD@{1}: reset: moving to dbdee7565f
+e006251 HEAD@{2}: reset: moving to HEAD^
+dbdee75 HEAD@{3}: commit: append GPL
+e006251 HEAD@{4}: commit: readme.txt
+b03551e HEAD@{5}: commit (initial): wrote a readme file
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git reset --hard dbdee75
+HEAD is now at dbdee75 append GPL
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git stadus
+git: 'stadus' is not a git command. See 'git --help'.
+
+Did you mean this?
+        status
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        license.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add license.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   license.txt
+        modified:   readme.txt
+
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git commit -m "understand how stage works"
+[master 5093370] understand how stage works
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 license.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git ststus
+git: 'ststus' is not a git command. See 'git --help'.
+
+Did you mean this?
+        status
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git commit -m "commit stupid boss"
+[master d2af328] commit stupid boss
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git checkout -- readme.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ ststus
+bash: ststus: command not found
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ status
+bash: status: command not found
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        test.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git add test.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   test.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    test.txt
+
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git checkout -- test.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ rm test.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git commit -m "remove test.txt"
+[master 4b77e06] remove test.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git checkout -- test.txt
+
+Hoperun@Hoperun-PC MINGW64 /d/gitBass/learngit (master)
+$ git
